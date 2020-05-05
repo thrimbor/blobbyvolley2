@@ -23,11 +23,11 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 /* includes */
 #include <cassert>
+#include <vector>
 
 #include <physfs.h>
 
 #include <boost/crc.hpp>
-#include <boost/scoped_array.hpp>
 #include <boost/algorithm/string.hpp>
 
 #include "tinyxml/tinyxml.h"
@@ -251,14 +251,14 @@ std::shared_ptr<TiXmlDocument> FileRead::readXMLDocument(const std::string& file
 
 	// thats quite ugly
 	int fileLength = file.length();
-	boost::scoped_array<char> fileBuffer(new char[fileLength + 1]);
-	file.readRawBytes( fileBuffer.get(), fileLength );
+	std::vector<char> fileBuffer(fileLength + 1);
+	file.readRawBytes( fileBuffer.data(), fileLength );
 	// null-terminate
 	fileBuffer[fileLength] = 0;
 
 	// parse file
 	std::shared_ptr<TiXmlDocument> xml = std::make_shared<TiXmlDocument>();
-	xml->Parse(fileBuffer.get());
+	xml->Parse(fileBuffer.data());
 
 	/// \todo do error handling here?
 
