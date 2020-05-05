@@ -88,6 +88,17 @@ enum InputDeviceName
 	JOYSTICK = 3
 };
 
+/*! \class NonCopyable
+	\brief Mixin class to prevent copying
+*/
+class NonCopyable
+{
+	public:
+		NonCopyable() = default;
+		NonCopyable(const NonCopyable&) = delete;
+		void operator=(const NonCopyable&) = delete;
+};
+
 /*! \class Color
 	\brief represents RGB Colours
 	\details This class represents colors as RGB with one byte for each channel.

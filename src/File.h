@@ -23,9 +23,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include <string>
 #include <inttypes.h>
 
-#include <boost/noncopyable.hpp>
-
-
+#include "Global.h"
 #include "FileExceptions.h"
 #include "BlobbyDebug.h"
 
@@ -44,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 							message physfs created.
 	\todo 	write tests for this class.
 */
-class File : boost::noncopyable, public ObjectCounter<File>
+class File : NonCopyable, public ObjectCounter<File>
 {
 	public:
 		/// \brief closes the file

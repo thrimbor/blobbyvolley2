@@ -20,9 +20,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #pragma once
 
+#include "Global.h"
 #include "Vector.h"
 #include <list>
-#include <boost/noncopyable.hpp>
 
 //Bleeding blobs can be a lot of fun :)
 
@@ -57,7 +57,7 @@ class Blood
 	\details this class is responsible for managing blood effects, creating and deleting the particles, 
 			updating their positions etc. It is designed as a singleton, so it is noncopyable.
 */
-class BloodManager : private boost::noncopyable
+class BloodManager : private NonCopyable
 {
 	public:
 		/// update function, to be called each step.
