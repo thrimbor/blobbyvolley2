@@ -36,9 +36,9 @@ Sound* SoundManager::loadSound(const std::string& filename)
 	FileRead file(filename);
 	int fileLength = file.length();
 
-	// safe file data into a shared_array to ensure it is deleten properly
+	// save file data into a shared_ptr to ensure it is deleted properly
 	// in case of exceptions
-	boost::shared_array<char> fileBuffer = file.readRawBytes( fileLength );
+	std::shared_ptr<char[]> fileBuffer = file.readRawBytes( fileLength );
 
 	SDL_RWops* rwops = SDL_RWFromMem(fileBuffer.get(), fileLength);
 

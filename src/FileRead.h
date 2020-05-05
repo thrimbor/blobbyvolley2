@@ -79,7 +79,7 @@ class FileRead : public File
 		/// \throw PhysfsFileException when nothing could be read
 		/// \throw NoFileOpenedException when called while no file is opened.
 		/// \throw EOFException when cless than \p num_of_bytes bytes are available.
-		boost::shared_array<char> readRawBytes( std::size_t num_of_bytes );
+		std::shared_ptr<char[]> readRawBytes( std::size_t num_of_bytes );
 		
 		/// reads exactly one byte
 		/// \throw PhysfsFileException when Physfs reports an error

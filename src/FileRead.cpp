@@ -82,10 +82,10 @@ uint32_t FileRead::readRawBytes( char* target, std::size_t num_of_bytes )
 	return num_read;
 }
 
-boost::shared_array<char> FileRead::readRawBytes( std::size_t num_of_bytes )
+std::shared_ptr<char[]> FileRead::readRawBytes( std::size_t num_of_bytes )
 {
 	// creates the buffer
-	boost::shared_array<char> buffer ( new char[num_of_bytes] );
+	std::shared_ptr<char[]> buffer(new char[num_of_bytes]);
 
 	readRawBytes( buffer.get(), num_of_bytes );
 	return buffer;

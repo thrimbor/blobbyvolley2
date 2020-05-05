@@ -271,7 +271,7 @@ void NetworkGameState::step_impl()
 				stream.Read(rulesLength);
 				if (rulesLength)
 				{
-					boost::shared_array<char>  rulesString( new char[rulesLength + 1] );
+					std::shared_ptr<char[]> rulesString(new char[rulesLength + 1]);
 					stream.Read(rulesString.get(), rulesLength);
 					// null terminate
 					rulesString[rulesLength] = 0;

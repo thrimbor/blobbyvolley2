@@ -86,7 +86,7 @@ SDL_Surface* RenderManager::loadSurface(std::string filename)
 	int fileLength = file.length();
 
 	// just read the whole file
-	boost::shared_array<char> fileContent = file.readRawBytes(fileLength);
+	std::shared_ptr<char[]> fileContent = file.readRawBytes(fileLength);
 
 	SDL_RWops* rwops = SDL_RWFromMem(fileContent.get(), fileLength);
 	SDL_Surface* newSurface = SDL_LoadBMP_RW(rwops , 1);
