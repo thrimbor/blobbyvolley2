@@ -20,9 +20,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #pragma once
 
-#include "GameState.h"
+#include <memory>
 
-#include <boost/scoped_ptr.hpp>
+#include "GameState.h"
 
 class ReplayRecorder;
 
@@ -42,6 +42,6 @@ class LocalGameState : public GameState
 	private:
 		bool mWinner;
 
-		boost::scoped_ptr<ReplayRecorder> mRecorder;
+		std::unique_ptr<ReplayRecorder> mRecorder;
 };
 

@@ -25,7 +25,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include "PlayerIdentity.h"
 
 #include <vector>
-#include <boost/scoped_ptr.hpp>
 #include <memory>
 
 class RakClient;
@@ -70,7 +69,7 @@ private:
 
 	bool mUseRemoteColor;
 
-	boost::scoped_ptr<InputSource> mLocalInput;
+	std::unique_ptr<InputSource> mLocalInput;
 
 	bool mWaitingForReplay;
 

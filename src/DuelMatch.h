@@ -22,7 +22,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #include <string>
 #include <vector>
-#include <boost/scoped_ptr.hpp>
 #include <memory>
 
 #include "GameLogic.h"
@@ -131,7 +130,7 @@ class DuelMatch : public ObjectCounter<DuelMatch>
 
 	private:
 
-		boost::scoped_ptr<PhysicWorld> mPhysicWorld;
+		std::unique_ptr<PhysicWorld> mPhysicWorld;
 
 		std::shared_ptr<InputSource> mInputSources[MAX_PLAYERS];
 		PlayerInput mTransformedInput[MAX_PLAYERS];

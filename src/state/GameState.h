@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include "TextManager.h"
 
 #include <functional>
+#include <memory>
 #include <tuple>
 
 /*! \class GameState
@@ -76,7 +77,7 @@ protected:
 	void saveReplay(ReplayRecorder& recorder);
 
 
-	boost::scoped_ptr<DuelMatch> mMatch;
+	std::unique_ptr<DuelMatch> mMatch;
 
 	// ui helper variable for storing a filename
 	bool mSaveReplay;
